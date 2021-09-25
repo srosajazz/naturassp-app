@@ -36,6 +36,10 @@ public class CategoriaController {
 	
 	@PostMapping("/categoria")
 	public ResponseEntity<Categoria> adicionarNova(@RequestBody Categoria categoria){
+		if (categoria.getId() != null) {
+			categoria.setId(null);
+		}
+		
 		Categoria resultado = service.inserirNovaCategoria(categoria);
 		if (resultado != null) {
 			return ResponseEntity.status(201).body(resultado);
