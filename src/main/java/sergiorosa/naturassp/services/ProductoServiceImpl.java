@@ -9,26 +9,25 @@ import sergiorosa.naturassp.dao.ProdutoDAO;
 import sergiorosa.naturassp.model.Categoria;
 import sergiorosa.naturassp.model.Produto;
 
-
 @Component
-public class ProductoServiceImpl implements IProdutoService{
+public class ProductoServiceImpl implements IProdutoService {
 
 	@Autowired
 	private ProdutoDAO dao;
 
 	@Override
 	public Produto inserirNovoProduto(Produto produto) {
-		
+
 		try {
 			dao.save(produto);
 			return produto;
-			
+
 		} catch (Exception ex) {
 			System.out.println("---- ProdutoService.inseirirNovoProduto ---");
 			ex.printStackTrace();
 			System.out.println("-------------------------------------------");
 		}
-		
+
 		return null;
 	}
 
@@ -42,8 +41,7 @@ public class ProductoServiceImpl implements IProdutoService{
 			ex.printStackTrace();
 			System.out.println("--------------------------------------");
 		}
-		
-		
+
 		return null;
 	}
 
@@ -51,7 +49,7 @@ public class ProductoServiceImpl implements IProdutoService{
 	public ArrayList<Produto> listarTodos() {
 		// TODO Auto-generated method stub
 		return (ArrayList<Produto>) dao.findAll();
-		
+
 	}
 
 	@Override
@@ -63,7 +61,7 @@ public class ProductoServiceImpl implements IProdutoService{
 	@Override
 	public ArrayList<Produto> listarPorCategoria(Categoria categoria) {
 		// TODO Auto-generated method stub
-		return dao.findAllByDisponivelAndCategoria(1,  categoria);
+		return dao.findAllByDisponivelAndCategoria(1, categoria);
 	}
 
 	@Override
@@ -77,6 +75,5 @@ public class ProductoServiceImpl implements IProdutoService{
 		// TODO Auto-generated method stub
 		return dao.findById(id).orElse(null);
 	}
-
 
 }

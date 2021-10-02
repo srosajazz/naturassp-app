@@ -9,8 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
-
 @Entity
 @Table(name = "tbl_produto")
 public class Produto {
@@ -18,22 +16,22 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_produto")
 	private Integer id;
-	
+
 	@Column(name = "nome_produto", length = 100, nullable = false)
-	private String  nome;
-	
+	private String nome;
+
 	@Column(name = "detalhe_produto", length = 500)
-	private String  detalhe;
-	
+	private String detalhe;
+
 	@Column(name = "link_foto", length = 255, nullable = false)
 	private String linkFoto;
-	
+
 	@Column(name = "preco_produto", nullable = false)
 	private double preco;
-	
-	@Column(name = "disponivel", length  = 1)
+
+	@Column(name = "disponivel")
 	private int disponivel;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_categoria")
 	private Categoria categoria;
@@ -94,5 +92,4 @@ public class Produto {
 		this.categoria = categoria;
 	}
 
-	
 }
