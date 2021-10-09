@@ -1,0 +1,32 @@
+<div class="container" id="destaque">
+  <!-- Carrossel -->
+  <app-carrossel></app-carrossel>
+
+  <!--  -->
+  <div class="row">
+    <div
+      *ngFor="let ITEM of list"
+      class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3"
+    >
+      <div class="card">
+        <img
+          src="{{ ITEM.linkFoto }}"
+          class="card-img-top"
+          alt="{{ ITEM.nome }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ ITEM.nome }}</h5>
+          <h6 class="card-subtitle mb-2 text-center">
+            U$ {{ ITEM.preco | number: "1.2-2" }}
+          </h6>
+          <p class="card-text"></p>
+          <p class="card-text">
+            {{ ITEM.detalhe }}
+          </p>
+          <p class="card-text">Categoria: {{ ITEM.categoria.nome }}</p>
+          <a href="#" class="btn btn-primary">Click on me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
