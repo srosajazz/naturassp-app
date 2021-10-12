@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row" *ngIf="produtoDetalhe">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-2">
+      <img src="{{ produtoDetalhe.linkFoto }}" width="100%" />
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8 col-xl-8">
+      <h3>{{ produtoDetalhe.nome }}</h3>
+      <p>
+        {{ produtoDetalhe.detalhe }}
+      </p>
+      <h4>Price U$ {{ produtoDetalhe.preco | number: "1.2-2" }}</h4>
+    </div>
+  </div>
+</div>

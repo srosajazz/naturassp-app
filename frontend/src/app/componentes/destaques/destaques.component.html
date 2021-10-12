@@ -17,14 +17,17 @@
         <div class="card-body">
           <h5 class="card-title text-center">{{ ITEM.nome }}</h5>
           <h6 class="card-subtitle mb-2 text-center">
-            U$ {{ ITEM.preco | number: "1.2-2" }}
+            U$ {{ ITEM.preco | | currency:'USA' }}
           </h6>
           <p class="card-text"></p>
           <p class="card-text">
             {{ ITEM.detalhe }}
           </p>
           <p class="card-text">Categoria: {{ ITEM.categoria.nome }}</p>
-          <a href="#" class="btn btn-primary">Click on me</a>
+          <a [routerLink]="['/detalhe/', ITEM.id]" class="btn btn-primary"
+            >Eu quero!!!</a
+          >
+          >
         </div>
       </div>
     </div>
