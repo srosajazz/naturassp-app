@@ -18,9 +18,8 @@ import { RodapeComponent } from './componentes/rodape/rodape.component';
     DestaquesComponent,
     CarrosselComponent,
     DetalhesComponent,
-    FormsModule,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -17,7 +17,7 @@
         <div class="card-body">
           <h5 class="card-title text-center">{{ ITEM.nome }}</h5>
           <h6 class="card-subtitle mb-2 text-center">
-            U$ {{ ITEM.preco | | currency:'USA' }}
+            U$ {{ ITEM.preco | number: "1.2-2" }}
           </h6>
           <p class="card-text"></p>
           <p class="card-text">

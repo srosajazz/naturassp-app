@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ItemPedido } from 'src/app/model/ItemPedido';
+import { Pedido } from 'src/app/model/Pedido';
 import { Produto } from 'src/app/model/Produto';
 import { ProdutoService } from 'src/app/servicos/produto.service';
 
@@ -10,8 +12,12 @@ import { ProdutoService } from 'src/app/servicos/produto.service';
 })
 export class DetalhesComponent implements OnInit {
   public produtoDetalhe: Produto;
+  public quantidade: number;
 
-  constructor(private route: ActivatedRoute, private service: ProdutoService) {}
+  // Constructor
+  constructor(private route: ActivatedRoute, private service: ProdutoService) {
+    this.quantidade = 1;
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((parameter) => {
@@ -20,12 +26,34 @@ export class DetalhesComponent implements OnInit {
   }
 
   public recuperarProduto(id: number) {
-    this.service.getProdutoById(id).subscribe((prod: any) => {
-      this.produtoDetalhe = prod;
+    this.service.getProdutoById(id).subscribe(
+      (prod: any) => {
+        this.produtoDetalhe = prod;
+      },
+      (erro) => {
+        alert('produto invali');
+      }
+    );
+  }
 
-      (erro: any) => {
-        alert('Produto ivalid! ');
-      };
-    });
+  public addCart() {
+    let pedido: Pedido;
+    pedido = JSON.parse(localStorage.getItem('CartShop') || '{}');
+    if (!pedido) {
+      // se ele não exisitir, eu crio um novo pedido
+      pedido = new Pedido();
+      pedido.valorTotal = 0;
+      pedido.itensPedido = [];
+    }
+
+    let item: ItemPedido;
+    item = new ItemPedido();
+    item.qtdeItem = this.quantidade;
+    item.produto = this.produtoDetalhe;
+    item.precoTotal = item.precoUnitario * item.qtdeItem;
+
+    pedido.itensPedido.push(item);
+    pedido.valorTotal = pedido.valorTotal + item.precoTotal;
+    localStorage.setItem('CartShop', JSON.stringify(pedido));
   }
 }

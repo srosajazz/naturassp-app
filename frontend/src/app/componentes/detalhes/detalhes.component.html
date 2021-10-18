@@ -9,7 +9,24 @@
       <p>
         {{ produtoDetalhe.detalhe }}
       </p>
-      <h4>Price U$ {{ produtoDetalhe.preco | number: "1.2-2" }}</h4>
+      <h4>Price U$ {{ produtoDetalhe.preco }}</h4>
+      <!-- Add Form -->
+
+      <input
+        type="number"
+        [(ngModel)]="quantidade"
+        class="form-control"
+        placeholder="1"
+        value="1"
+        max="100"
+        min="1"
+      />
+
+      <br />
+
+      <button type="button" (click)="addCart()" class="btn btn-primary mb-3">
+        Add to Cart
+      </button>
     </div>
   </div>
 </div>

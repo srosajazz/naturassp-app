@@ -7,12 +7,10 @@ import { HttpClient } from '@angular/common/http';
 export class ProdutoService {
   constructor(private http: HttpClient) {}
   public getAllProdutos() {
-    console.log('PRODUTOSERVICES - CONNECT WITH BACKEND!');
-
     return this.http.get('http://localhost:8080/produto');
   }
 
-  // GetProduct
+  // GetProductByID
   public getProdutoById(id: number) {
     return this.http.get('http://localhost:8080/produto/' + id);
   }
