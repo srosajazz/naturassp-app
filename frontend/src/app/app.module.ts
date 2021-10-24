@@ -9,6 +9,7 @@ import { DestaquesComponent } from './componentes/destaques/destaques.component'
 import { DetalhesComponent } from './componentes/detalhes/detalhes.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { RodapeComponent } from './componentes/rodape/rodape.component';
+import { CartshopComponent } from './componentes/cartshop/cartshop.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RodapeComponent } from './componentes/rodape/rodape.component';
     DestaquesComponent,
     CarrosselComponent,
     DetalhesComponent,
+    CartshopComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

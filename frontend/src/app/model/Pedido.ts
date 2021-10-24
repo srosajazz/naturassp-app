@@ -3,6 +3,6 @@
 import { ItemPedido } from './ItemPedido';
 
 export class Pedido {
-  public itensPedido: ItemPedido[] = [];
-  public valorTotal: number;
+  public itensPedido: ItemPedido[];
+  public valorTotal: number = 0;
 }

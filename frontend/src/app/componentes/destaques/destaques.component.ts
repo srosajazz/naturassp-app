@@ -15,7 +15,7 @@ export class DestaquesComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getAllProdutos().subscribe(
-      (res: any) => {
+      (res: Produto[]) => {
         this.list = res;
         console.log(res);
         console.log(typeof res);
